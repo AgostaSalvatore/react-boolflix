@@ -125,7 +125,14 @@ function App() {
                     <div className="card-body">
                       <h5 className="card-title text-danger">{serie.name}</h5>
                       <p>{serie.original_name}</p>
-                      <p><b>Language:</b> <ReactCountryFlag countryCode={getCountryCode(serie.original_language)} svg /></p>
+                      <p><b>Language:</b> {
+                        getCountryCode(serie.original_language) ?
+                          <ReactCountryFlag
+                            countryCode={getCountryCode(serie.original_language)}
+                            svg
+                          /> :
+                          serie.original_language.toUpperCase()
+                      }</p>
                       <p><b>Vote:</b> {Math.ceil(serie.vote_average / 2)} / 5</p>
                     </div>
                   </div>
