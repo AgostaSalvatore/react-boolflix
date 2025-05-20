@@ -102,7 +102,7 @@ function App() {
                       <h5 className="card-title text-danger">{movie.title}</h5>
                       <p>{movie.original_title}</p>
                       <p><b>Language:</b> <ReactCountryFlag countryCode={getCountryCode(movie.original_language)} svg /></p>
-                      <p><b>Vote:</b> {movie.vote_average}</p>
+                      <p><b>Vote:</b> {Math.ceil(movie.vote_average / 2)} / 5</p>
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ function App() {
                 <div key={serie.id} className="col-6 col-md-4 col-lg-3 mb-3">
                   <div className="card">
                     <img
-                      src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/${serie.poster_path}`}
                       className="card-img-top img-fluid"
                       alt={serie.name}
                     />
