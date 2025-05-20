@@ -12,27 +12,19 @@ function App() {
 
   // Funzione per convertire i codici lingua in codici paese
   const getCountryCode = (languageCode) => {
-    // Mappatura speciale per lingue che non corrispondono direttamente a paesi
+    // Mappatura solo per italiano e inglese
     const map = {
       'en': 'GB',  // Inglese -> Gran Bretagna
-      'ja': 'JP',  // Giapponese -> Giappone
-      'ko': 'KR',  // Coreano -> Corea del Sud
-      'zh': 'CN',  // Cinese -> Cina
-      'hi': 'IN',  // Hindi -> India
-      'he': 'IL',  // Ebraico -> Israele
-      'fa': 'IR',  // Farsi -> Iran
-      'da': 'DK',  // Danese -> Danimarca
-      'cs': 'CZ',  // Ceco -> Repubblica Ceca
-      'el': 'GR',  // Greco -> Grecia
+      'it': 'IT',  // Italiano -> Italia
     };
 
-    // Controlla se esiste una mappatura speciale
+    // Controlla se è italiano o inglese
     if (map[languageCode]) {
       return map[languageCode];
     }
 
-    // Altrimenti, converti a maiuscolo (funziona per molti casi come it→IT, fr→FR)
-    return languageCode.toUpperCase();
+    // Per tutte le altre lingue, restituisci null
+    return null;
   };
 
   const handleClickFilm = () => {
@@ -101,7 +93,14 @@ function App() {
                     <div className="card-body">
                       <h5 className="card-title text-danger">{movie.title}</h5>
                       <p>{movie.original_title}</p>
-                      <p><b>Language:</b> <ReactCountryFlag countryCode={getCountryCode(movie.original_language)} svg /></p>
+                      <p><b>Language:</b> {
+                        getCountryCode(movie.original_language) ?
+                          <ReactCountryFlag
+                            countryCode={getCountryCode(movie.original_language)}
+                            svg
+                          /> :
+                          movie.original_language.toUpperCase()
+                      }</p>
                       <p><b>Vote:</b> {Math.ceil(movie.vote_average / 2)} / 5</p>
                     </div>
                   </div>
