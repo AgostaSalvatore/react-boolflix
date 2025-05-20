@@ -119,7 +119,7 @@ function App() {
                 <div key={serie.id} className="col-6 col-md-4 col-lg-3 mb-3">
                   <div className="card">
                     <img
-                      src={`https://image.tmdb.org/t/p/${serie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                       className="card-img-top img-fluid"
                       alt={serie.name}
                     />
