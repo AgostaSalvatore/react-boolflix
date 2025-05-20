@@ -13,6 +13,9 @@ function App() {
       .then((response) => {
         console.log(response.data.results);
       })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   return (
