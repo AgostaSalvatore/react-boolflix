@@ -8,7 +8,12 @@ function App() {
 
   const [input, setInput] = useState('');
 
-
+  const handleClick = () => {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${input}`)
+      .then((response) => {
+        console.log(response.data.results);
+      })
+  }
 
   return (
     <>
