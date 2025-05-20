@@ -5,7 +5,9 @@ function App() {
 
   return (
     <>
-
+      <header>
+        <h1>BoolFlix</h1>
+      </header>
     </>
   )
 }
