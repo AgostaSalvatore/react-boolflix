@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
+import ReactCountryFlag from 'react-country-flag';
 
 
 function App() {
@@ -8,10 +9,29 @@ function App() {
   const [input, setInput] = useState('');
   const [film, setFilm] = useState([]);
 
+  // Funzione per convertire i codici lingua in codici paese
+  const getCountryCode = (languageCode) => {
+    // Mappatura speciale per lingue che non corrispondono direttamente a paesi
+    const map = {
+      'en': 'GB',  // Inglese -> Gran Bretagna
+      'it': 'IT',  //italiano -> Italia
+
+    };
+
+    // Controlla se esiste una mappatura speciale
+    if (map[languageCode]) {
+      return map[languageCode];
+    }
+
+    // Altrimenti, converti a maiuscolo (funziona per molti casi come it→IT, fr→FR)
+    return languageCode.toUpperCase();
+  };
+
   const handleClick = () => {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1aeffb0b3520785500a2dd89ea7e745f&query=${input}`)
       .then((response) => {
         setFilm(response.data.results);
+        console.log(response.data.results);
       })
       .catch((error) => {
         console.log(error);
@@ -26,7 +46,7 @@ function App() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-12 col-md-3 text-center text-md-start mb-2 mb-md-0">
-              <h1 className="text-white m-0">BoolFlix</h1>
+              <h1 className="text-danger m-0">BoolFlix</h1>
             </div>
             <div className="col-12 col-md-7">
               <input type="text" placeholder="Titolo" className='form-control' onChange={(e) => setInput(e.target.value)} />
@@ -48,9 +68,12 @@ function App() {
                   alt={movie.title}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{movie.title}</h5>
+                  <h5 className="card-title text-danger">{movie.title}</h5>
                   <p>{movie.original_title}</p>
-                  <p><b>Language:</b> {movie.original_language}</p>
+                  <p><b>Language:</b> <ReactCountryFlag
+                    countryCode={getCountryCode(movie.original_language)}
+                    svg //immagine vettoriale della libreria react-country-flag
+                  /></p>
                   <p><b>Vote:</b> {movie.vote_average}</p>
                 </div>
               </div>
