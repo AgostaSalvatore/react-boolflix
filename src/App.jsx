@@ -38,7 +38,7 @@ function App() {
   const handleClickFilm = () => {
     // Reset serie TV quando cerchiamo film
     setSeries([]);
-    
+
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1aeffb0b3520785500a2dd89ea7e745f&query=${input}`)
       .then((response) => {
         setFilm(response.data.results);
@@ -52,7 +52,7 @@ function App() {
   const handleClicktv = () => {
     // Reset film quando cerchiamo serie TV
     setFilm([]);
-    
+
     axios.get(`https://api.themoviedb.org/3/search/tv?api_key=1aeffb0b3520785500a2dd89ea7e745f&query=${input}`)
       .then((response) => {
         setSeries(response.data.results);
@@ -110,7 +110,7 @@ function App() {
             </div>
           </>
         )}
-        
+
         {series.length > 0 && (
           <>
             <h2 className="text-danger mt-4 mb-3">Serie TV</h2>
@@ -127,7 +127,7 @@ function App() {
                       <h5 className="card-title text-danger">{serie.name}</h5>
                       <p>{serie.original_name}</p>
                       <p><b>Language:</b> <ReactCountryFlag countryCode={getCountryCode(serie.original_language)} svg /></p>
-                      <p><b>Vote:</b> {serie.vote_average}</p>
+                      <p><b>Vote:</b> {Math.ceil(serie.vote_average / 2)} / 5</p>
                     </div>
                   </div>
                 </div>
