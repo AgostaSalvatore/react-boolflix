@@ -15,7 +15,6 @@ function App() {
     const map = {
       'en': 'GB',  // Inglese -> Gran Bretagna
       'it': 'IT',  //italiano -> Italia
-
     };
 
     // Controlla se esiste una mappatura speciale
@@ -46,7 +45,7 @@ function App() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-12 col-md-3 text-center text-md-start mb-2 mb-md-0">
-              <h1 className="text-danger m-0">BoolFlix</h1>
+              <h1 className="text-danger m-0 boolflix">BoolFlix</h1>
             </div>
             <div className="col-12 col-md-7">
               <input type="text" placeholder="Titolo" className='form-control' onChange={(e) => setInput(e.target.value)} />
@@ -62,11 +61,13 @@ function App() {
           {film.map(movie => (
             <div key={movie.id} className="col-6 col-md-4 col-lg-3 mb-3">
               <div className="card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  className="card-img-top img-fluid"
-                  alt={movie.title}
-                />
+                <div className="card-header">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    className="card-img-top img-fluid"
+                    alt={movie.title}
+                  />
+                </div>
                 <div className="card-body">
                   <h5 className="card-title text-danger">{movie.title}</h5>
                   <p>{movie.original_title}</p>
