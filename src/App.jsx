@@ -86,11 +86,11 @@ function App() {
                 <div key={movie.id} className="col-6 col-md-4 col-lg-3 mb-3">
                   <div className="card h-100">
                     <img
-                      src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
                       className="card-img-top img-fluid"
                       alt={movie.title}
                     />
-                    <div className="card-body">
+                    <div className="card-body position-absolute h-100 w-100">
                       <h5 className="card-title text-danger">{movie.title}</h5>
                       <p>{movie.original_title}</p>
                       <p><b>Language:</b> {
@@ -126,11 +126,11 @@ function App() {
                 <div key={serie.id} className="col-6 col-md-4 col-lg-3 mb-3">
                   <div className="card h-100">
                     <img
-                      src={`https://image.tmdb.org/t/p/w342${serie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`}
                       className="card-img-top img-fluid"
                       alt={serie.name}
                     />
-                    <div className="card-body">
+                    <div className="card-body position-absolute h-100 w-100">
                       <h5 className="card-title text-danger">{serie.name}</h5>
                       <p>{serie.original_name}</p>
                       <p><b>Language:</b> {
