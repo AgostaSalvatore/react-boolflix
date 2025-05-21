@@ -110,6 +110,9 @@ function App() {
                         }
                       })}
                       </p>
+                      <p>
+                        <strong>Overview:</strong> {movie.overview}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -149,6 +152,9 @@ function App() {
                           return <span key={number}><i className="fa-regular fa-star star-color"></i></span>;
                         }
                       })}
+                      </p>
+                      <p>
+                        <strong>Overview:</strong> {serie.overview}
                       </p>
                     </div>
                   </div>

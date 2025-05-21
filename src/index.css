@@ -1,10 +1,14 @@
 *{
-  background-color: black;
   color: white;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: black !important;
+}
+
 
 .boolflix{
   font-size: 4.5rem;
@@ -19,6 +23,14 @@
 .card-body {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+}
+
+.card:hover .card-body {
+  opacity: 1;
 }
 
 .card-title {
