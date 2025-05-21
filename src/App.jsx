@@ -133,7 +133,15 @@ function App() {
                           /> :
                           serie.original_language.toUpperCase()
                       }</p>
-                      <p><b>Vote:</b> {Math.ceil(serie.vote_average / 2)} / 5</p>
+                      <p><strong>Voto:</strong> {[1, 2, 3, 4, 5].map((number) => {
+                        const vote = Math.ceil(serie.vote_average / 2);
+                        if (number <= vote) {
+                          return <span key={number}><i className="fa-solid fa-star star-color"></i></span>;
+                        } else {
+                          return <span key={number}><i className="fa-regular fa-star star-color"></i></span>;
+                        }
+                      })}
+                      </p>
                     </div>
                   </div>
                 </div>
