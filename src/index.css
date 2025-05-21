@@ -27,6 +27,8 @@ body {
   transition: opacity 0.3s ease;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 15px;
+  overflow-y: auto;
+  max-height: 100%;
 }
 
 .card:hover .card-body {
@@ -38,6 +40,8 @@ body {
   overflow: hidden;
 }
 
+
+/* STAR */
 .star-color{
   color: yellow;
 }

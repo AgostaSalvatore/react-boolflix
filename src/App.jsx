@@ -55,6 +55,13 @@ function App() {
       })
   }
 
+  const handleClickReset = () => {
+    setFilm([]);
+    setSeries([]);
+    setInput('');
+  }
+
+
 
 
   return (
@@ -63,10 +70,16 @@ function App() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-12 col-md-3 text-center text-md-start mb-2 mb-md-0">
-              <h1 className="text-danger m-0">BoolFlix</h1>
+              <a href="#" onClick={handleClickReset} className='text-decoration-none'> <h1 className="text-danger m-0">BoolFlix</h1> </a>
             </div>
             <div className="col-12 col-md-6">
-              <input type="text" placeholder="Titolo" className='form-control' onChange={(e) => setInput(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Titolo"
+                className='form-control'
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
             </div>
             <div className="col-12 col-md-1 mt-2 mt-md-0 text-center">
               <button className='btn btn-secondary w-100' onClick={handleClickFilm}>Film</button>
@@ -84,7 +97,7 @@ function App() {
             <div className="row">
               {film.map(movie => (
                 <div key={movie.id} className="col-6 col-md-4 col-lg-3 mb-3">
-                  <div className="card h-100">
+                  <div className="card h-200">
                     <img
                       src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
                       className="card-img-top img-fluid"
