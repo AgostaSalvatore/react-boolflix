@@ -86,7 +86,7 @@ function App() {
                 <div key={movie.id} className="col-6 col-md-4 col-lg-3 mb-3">
                   <div className="card h-100">
                     <img
-                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
                       className="card-img-top img-fluid"
                       alt={movie.title}
                     />
@@ -118,7 +118,7 @@ function App() {
                 <div key={serie.id} className="col-6 col-md-4 col-lg-3 mb-3">
                   <div className="card h-100">
                     <img
-                      src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w342${serie.poster_path}`}
                       className="card-img-top img-fluid"
                       alt={serie.name}
                     />
